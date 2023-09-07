@@ -13,7 +13,9 @@ from sqlalchemy import create_engine
 # Crea una conexión a la base de datos
 engine = create_engine('postgresql://fl0user:9aIMLsfioV0r@ep-odd-cell-06464893.eu-central-1.aws.neon.tech:5432/postgresql?sslmode=require')
 
-
+def error():
+       return "DATA ERROR"
+           
 @app.route('/', methods=["GET"])
 def form():
        
@@ -21,9 +23,6 @@ def form():
 
 @app.route('/v0/get_predict', methods=["POST"])
 def get_predict():
-    def error():
-        return "DATA ERROR"
-    
     feat1 = request.form.get('feat1', None)
     feat2 = request.form.get('feat2', None)
     feat3 = request.form.get('feat3', None)
@@ -74,7 +73,7 @@ def get_predict():
     
     df = pd.DataFrame(cols, index=[int(datetime.now().timestamp())])
     df.to_sql(name="predictions",if_exists='append',con=engine)
-       return jsonify(prediction)
+    return jsonify(prediction)
 
 
 @app.route('/v0/get_logs', methods=["GET"])
