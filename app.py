@@ -74,8 +74,8 @@ def get_predict():
     
     df = pd.DataFrame(cols, index=[int(datetime.now().timestamp())])
     df.to_sql(name="predictions",if_exists='append',con=engine)
+       return jsonify(prediction)
 
-    return prediction
 
 @app.route('/v0/get_logs', methods=["GET"])
 def get_logs():
