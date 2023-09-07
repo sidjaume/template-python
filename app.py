@@ -83,7 +83,7 @@ def get_logs():
 @app.route('/v0/del_logs', methods=["DELETE"])
 def del_logs():    
 
-    conn = sqlite3.connect('postgres://fl0user:9aIMLsfioV0r@ep-odd-cell-06464893.eu-central-1.aws.neon.tech:5432/postgres?sslmode=require')
+    conn = psycopg2.connect('postgres://fl0user:9aIMLsfioV0r@ep-odd-cell-06464893.eu-central-1.aws.neon.tech:5432/postgres?sslmode=require')
     cursor = conn.cursor()
     cursor.execute("DELETE FROM predictions")
     conn.commit()
