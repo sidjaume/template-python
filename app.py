@@ -11,7 +11,7 @@ app = Flask(__name__)
 from sqlalchemy import create_engine
 
 # Crea una conexión a la base de datos
-engine = create_engine('postgresql://fl0user:9aIMLsfioV0r@ep-odd-cell-06464893.eu-central-1.aws.neon.tech:5432/postgres?sslmode=require')
+engine = create_engine('postgresql://fl0user:9aIMLsfioV0r@@ep-mute-recipe-123456.eu-central-1.aws.neon.tech/neondb?options=endpoint%3Dep-mute-recipe-123456')
 
 
 @app.route('/', methods=["GET"])
